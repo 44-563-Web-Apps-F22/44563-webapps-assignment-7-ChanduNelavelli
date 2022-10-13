@@ -38,7 +38,7 @@
 		function makeNewDiv(){
 			/* make the div and its text */
 			let element = document.createElement("div");
-			element.style.color = "limegreen";
+			element.style.color = "red";
 			let inputRead = document.getElementById("userIn").value;
 			element.innerHTML = inputRead;
 			element.className = " cycler";
@@ -49,14 +49,14 @@
 		}
 		function get(){
 			var cyclecount = document.getElementsByClassName("cycler");
-			var length1 = cyclecount.length1;
+			var length1 = cyclecount.length;
 			if (length1 > 0){
 				cyclecount[length1-1].remove();
 			}
 		}
 		function spin(){
 			var cyclecount = document.getElementsByClassName("cycler");
-			var length1 = cyclecount.length1;
+			var length1 = cyclecount.length;
 			if (length1 > 1){
 				var removedItem = cyclecount[length1-1];
 				cyclecount[length1-1].remove();
