@@ -19,6 +19,9 @@
 <p id="chests" style="color: brown; background-color: yellow; padding: 5px; border: 1px solid black;" >Number of chests checked is zero.</p>
 <p id="score" style="color: brown; background-color: yellow; padding: 5px; border: 1px solid black;">Score is unknown.</p>
 <p id="help" style="color: brown; background-color: yellow; padding: 5px; border: 1px solid black;">Help report</p>
+<div class="container text-center">
+    <button class="btn btn-success" type="submit" onclick="resetGame()">Reset</button>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-sm"><img src= "treasure chest.jpg" height="45px" width="45px" id="chest0" onclick="check(0)"></div>
@@ -61,7 +64,7 @@
   var chestCount = 0;
   var score = 0;
   var lastCheck = 12;
-  var treasureLocation = 18;
+  var treasureLocation = Math.floor(Math.random() * 24);
   function check(position){
           var location = ids[position]
           //console.log(location);
@@ -106,6 +109,23 @@
           }
       } else {
           document.getElementById("help").innerHTML = "Sorry, no help available"
+      }
+  }
+  // BONUS
+  function resetGame() {
+      treasureLocation = Math.floor(Math.random() * 24)
+      while(treasureLocation == 12) {
+          treasureLocation = Math.floor(Math.random() * 24)
+      }
+      chestCount = 0
+      score = 0
+      document.getElementById("chests").innerHTML = "Number of chests checked is zero"
+      document.getElementById("score").innerHTML = "Score is unknown"
+      document.getElementById("help").innerHTML = "Help report"
+      for(let i = 0; i < 24; i++) {
+          if(i != 12) {
+              document.getElementById(ids[i]).src = "Treasure Chest.jpg"
+          }
       }
   }
   </script>
